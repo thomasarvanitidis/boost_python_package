@@ -1,9 +1,9 @@
 // Author: Thomas Arvanitidis
-// URL:    https://github.com/tarvanitidis/rpath_tutorial
+// URL:    https://github.com/thomasarvanitidis/boost_python_package
 
 #include <iostream>
 #include "boost/python.hpp"
-#include <boost/python/stl_iterator.hpp>
+#include "boost/python/stl_iterator.hpp"
 #include "fastmatrix.h"
 
 namespace fastmatrix

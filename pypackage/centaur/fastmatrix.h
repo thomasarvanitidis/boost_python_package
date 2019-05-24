@@ -1,5 +1,5 @@
 // Author: Thomas Arvanitidis
-// URL:    https://github.com/tarvanitidis/rpath_tutorial
+// URL:    https://github.com/thomasarvanitidis/boost_python_package
 
 #ifndef _FASTMATRIX_H_
 #define _FASTMATRIX_H_

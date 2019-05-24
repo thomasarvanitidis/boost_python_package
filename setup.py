@@ -40,7 +40,7 @@ if __name__ == '__main__':
     with open("pypackage/repo_hash.json", "w") as file:
         json.dump(data, file)
 
-    module1 = Extension(
+    centaur_module = Extension(
         'centaur',
         include_dirs = ['/Users/thomas/.conan/data/boost/1.67.0/teamai/develop/package/47a700462a0f40e8eddbfc4b06098815950797b1/include'],
         libraries = ['boost_python36', 'boost_numpy36'],
@@ -60,7 +60,7 @@ if __name__ == '__main__':
         long_description=readme(),
         long_description_content_type="text/markdown",
         license="LICENSE",
-        url = "https://github.com/thomasarvanitidis/pypackage",
+        url = "https://github.com/thomasarvanitidis/boost_python_package",
         download_url = "",
         keywords=['pip','pypackage'],
         packages=find_packages(),
@@ -78,7 +78,7 @@ if __name__ == '__main__':
         ],
         include_package_data=True,
         zip_safe=False,
-        ext_modules = [module1]
+        ext_modules = [centaur_module]
     )
 
     # Setup package.
