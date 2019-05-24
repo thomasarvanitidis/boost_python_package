@@ -1,3 +1,4 @@
+from distutils.core import Extension
 from setuptools import (setup, find_packages)
 import codecs
 import json
@@ -39,6 +40,15 @@ if __name__ == '__main__':
     with open("pypackage/repo_hash.json", "w") as file:
         json.dump(data, file)
 
+    module1 = Extension(
+        'centaur',
+        include_dirs = ['/Users/thomas/.conan/data/boost/1.67.0/teamai/develop/package/47a700462a0f40e8eddbfc4b06098815950797b1/include'],
+        libraries = ['boost_python36', 'boost_numpy36'],
+        library_dirs = ['/Users/thomas/.conan/data/boost/1.67.0/teamai/develop/package/47a700462a0f40e8eddbfc4b06098815950797b1/lib'],
+        extra_link_args = ['-Wl,-rpath,/Users/thomas/.conan/data/boost/1.67.0/teamai/develop/package/47a700462a0f40e8eddbfc4b06098815950797b1/lib'],
+        sources = ['pypackage/centaur/fastmatrix.cpp', 'pypackage/centaur/wrapper.cpp']
+    )
+
     # Create package metadata.
     metadata = dict(
         name="pypackage",
@@ -66,7 +76,8 @@ if __name__ == '__main__':
             "Operating System :: OS Independent",
         ],
         include_package_data=True,
-        zip_safe=False
+        zip_safe=False,
+        ext_modules = [module1]
     )
 
     # Setup package.
