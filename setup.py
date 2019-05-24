@@ -46,7 +46,8 @@ if __name__ == '__main__':
         libraries = ['boost_python36', 'boost_numpy36'],
         library_dirs = ['/Users/thomas/.conan/data/boost/1.67.0/teamai/develop/package/47a700462a0f40e8eddbfc4b06098815950797b1/lib'],
         extra_link_args = ['-Wl,-rpath,/Users/thomas/.conan/data/boost/1.67.0/teamai/develop/package/47a700462a0f40e8eddbfc4b06098815950797b1/lib'],
-        sources = ['pypackage/centaur/fastmatrix.cpp', 'pypackage/centaur/wrapper.cpp']
+        sources = ['pypackage/centaur/fastmatrix.cpp', 'pypackage/centaur/wrapper.cpp'],
+        language = 'c++'
     )
 
     # Create package metadata.

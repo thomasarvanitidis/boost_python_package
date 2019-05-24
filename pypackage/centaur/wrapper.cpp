@@ -7,7 +7,6 @@
 #include "fastmatrix.h"
 
 namespace p = boost::python;
-namespace np = p::numpy;
 
 /***************************/
 /* PYTHON MODULE INTERFACE */

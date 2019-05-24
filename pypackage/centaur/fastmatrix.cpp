@@ -3,19 +3,34 @@
 
 #include <iostream>
 #include "boost/python.hpp"
-#include "boost/python/list.hpp"
 #include <boost/python/stl_iterator.hpp>
 #include "fastmatrix.h"
 
-namespace fastmatrix 
+namespace fastmatrix
 {
 
-template< typename T >
+// Converts a python list to a C++ vector.
+template<typename T>
 inline
-std::vector< T > to_std_vector( const p::object& iterable )
+std::vector<T> to_std_vector(const p::object& iterable)
 {
-    return std::vector< T >( p::stl_input_iterator< T >( iterable ),
-                             p::stl_input_iterator< T >( ) );
+    return std::vector<T>(p::stl_input_iterator<T>(iterable),
+                          p::stl_input_iterator<T>());
+}
+
+// Converts a C++ vector to a python list.
+template <class T>
+inline
+p::list to_python_list(std::vector<T> vector)
+{
+    typename std::vector<T>::iterator iter;
+    p::list list;
+    for (iter = vector.begin(); iter != vector.end(); ++iter)
+    {
+        list.append(*iter);
+    }
+
+    return list;
 }
 
 void supper_fast_addition(std::vector<double>& a, std::vector<double>& b,
@@ -31,17 +46,6 @@ void supper_fast_addition(std::vector<double>& a, std::vector<double>& b,
     }
 }
 
-// Converts a C++ vector to a python list
-template <class T>
-boost::python::list toPythonList(std::vector<T> vector) {
-    typename std::vector<T>::iterator iter;
-    boost::python::list list;
-    for (iter = vector.begin(); iter != vector.end(); ++iter) {
-        list.append(*iter);
-    }
-    return list;
-}
-
 p::list add(p::list a, p::list b)
 {
     std::vector<double> output (boost::python::len(a));
@@ -49,9 +53,8 @@ p::list add(p::list a, p::list b)
     std::vector<double> b_ (to_std_vector<double>(b));
 
     supper_fast_addition(a_, b_, output);
-    std::cout << "Here\n";
 
-    return toPythonList<double>(output);
+    return to_python_list<double>(output);
 }
 
 } // End of namespace fastmatrix
