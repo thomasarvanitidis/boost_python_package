@@ -20,16 +20,10 @@ Built with Python 3.6.5 and used in venv created with virtualenvwrapper 4.8.2.
 
 ## Use
 
-INCOMPLETE IMPLEMENTATION.
-
-The problem here is that the compiled module \_centaur that is supposed to be
-part of `pypackage.centaur` cannot be found. However, it is correctly installed
-in the virtual environment's `site-packages` after its compilation.
-
-Reproduce the problem simply by attempting to import it:
-
 ```python
-import pypackage.centaur._centaur
+from pypackage import centaur
+centaur.add([1,2], [1,2])
+centaur.add([1,2, 3], [1,2, 3])
 ```
 
 ## Notes
