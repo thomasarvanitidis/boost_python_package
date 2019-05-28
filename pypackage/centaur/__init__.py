@@ -1,1 +1,3 @@
-from _centaur import *
+from ._centaur import add
+
+__all__ = [add]
