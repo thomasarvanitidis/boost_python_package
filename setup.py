@@ -41,7 +41,7 @@ if __name__ == '__main__':
         json.dump(data, file)
 
     centaur_module = Extension(
-        'pypackage.centaur.routines',
+        'pypackage.centaur._centaur',
         include_dirs = ['/Users/thomas/.conan/data/boost/1.67.0/teamai/develop/package/47a700462a0f40e8eddbfc4b06098815950797b1/include'],
         libraries = ['boost_python36', 'boost_numpy36'],
         library_dirs = ['/Users/thomas/.conan/data/boost/1.67.0/teamai/develop/package/47a700462a0f40e8eddbfc4b06098815950797b1/lib'],

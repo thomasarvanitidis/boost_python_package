@@ -14,7 +14,7 @@ namespace p = boost::python;
 
 BOOST_PYTHON_FUNCTION_OVERLOADS(add, fastmatrix::add, 2, 2)
 
-BOOST_PYTHON_MODULE(centaur)
+BOOST_PYTHON_MODULE(_centaur)
 {
 
     p::def("supper_fast_addition", fastmatrix::supper_fast_addition);
